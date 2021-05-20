@@ -1,2 +1,6 @@
-# avaliacao_ia
-Avaliação para vaga de Estágio em Inteligência Artificial da Softwell
+# Avaliação para vaga de Estágio em Inteligência Artificial da Softwell
+
+# Stack de Tecnologia:
+Laravel
+Vue/Vuex
+Bulma
