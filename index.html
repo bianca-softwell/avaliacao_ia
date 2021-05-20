@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistente Virtual</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- Chatbot Softwell -->
+    <link rel="stylesheet" href="cbsw/css/cbsw.css">
+</head>
+
+<body style="overflow: hidden;">
+
+    
+	<!-- Chatbot Softwell -->
+    <div id="background-chat" onclick="toggle();" class="background-chat-close"></div>
+    
+    <span onclick="PrimeiraResposta();maximizar();" id="cbsw_icon" class="cbsw_icon rounded-circle bg-primary text-light"><i class="fa fa-comment" aria-hidden="true"></i></span>
+    
+    <div id="cbsw" class="cbsw cbsw_collapsed col-lg-4 col-md-5 col-sm-12 cbsw_animation">
+        <div onclick="PrimeiraResposta();toggle();" class="cbsw_top text-light rounded-top p-3" style="z-index: 1000;background-color:#007bff;">
+
+        
+            
+            <i class="cbsw_openclose cbsw_open text-light pr-2 fa fa-comment"  aria-hidden="true"></i>
+            <i class="cbsw_openclose cbsw_close text-light pr-2 fa fa-times"  aria-hidden="true"></i>
+            <span class="panel-title">Olá, sou o assistente Virtual!</span>
+            
+        </div>
+        
+        <div style="overflow-x: hidden;" id="cbsw_scroll" class="cbsw_dialogue border bg-white">
+            
+            <div id="cbsw_dialogue" class="py-4 px-5 cbsw_dialogue-content cbsw_animation">
+            </div>
+        </div>
+
+        <div class="cbsw_action bg-light p-3 border border-top-0" style="z-index: 1000;">
+            <div class="input-group">
+                <input id="cbsw_input" type="text" class="form-control" placeholder="Como posso te ajudar?" aria-label="Como posso te ajudar?" aria-describedby="basic-addon2" onkeyup="TeclaPressionada(event);" onclick="PrimeiraResposta();maximizar();">
+                <div class="input-group-append" onclick="mensagemVoz()">
+                    <span class="input-group-text" id="basic-addon2"><img style="display: flex; flex: 1;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACaklEQVRYhd2XPWgUQRSAv1mO4wgiIkGClRY2UUGDiDaCThUkTUAQREwhYqWoadI9KwujokRrQcRCELQINgOSQkWidiFIClGQEOUIIipyZCxmLmz29mcmuSv0NXPz5v18+2Z27q0iUsTYGjAGnAIGgQSYAx4A90WrVkw8FZl8AHgKHCwwmQVGRKvFrgOIsXXgFTBUYToLHA6tRBIKAJwPSA5wADgbGjQG4EyE7emuAoixAHsiAIJtQytQA+oRAH3dBuiZ9Aog+C7oABBje1YVf4mtkQ4F8FmM/Q7sFq1WupR4K/AWV5ldVQDbgf5uJfeSADvI2Zqicm80+frPQI+lI18eQCtHv0JcVbIVaMfriJEH8A2oi7Gb2wp/HhYiAD5k5v2p2JUA837MXqdPIgAeZ+b7MrFLAWb8OJLRXwe+BCRfAO5ldMczsUsBHvlxTIxttJWiVdNDLZUk/4RrSH6u+rkmZjQTuxhAtJoHpoEBYDyz9g7YC0yxdj8XgUlgv/dPyzWgAUznrOV3RGLsIPDeT4+KVi9zbAC2+emS6M5QYuxJ3FP/8XBzQQDe+QJwG2gCw6LVmyLbAv9Rn7wOXBSt7uTZlfaEYuwN4DLwG5gApqp6PTG2D7jq/RLgpmh1pci+sikVY8dx+1jDvd93gWei1ceUTYJr0U8A53DnpwVMiFaTZfGDumIxdgi4BRxJqZu4NyLB/YFtSq3NAJf8oS2V2O+CQ7gPkmO4J25LC3fJvAAeilavQ2NGAaRAGsCvlOq5aDW8nlj/bU/47wBU3QM14GvB8pbU7xbwI8dmWbTaWZYjrycMleUN+K7KX5ucqjfFzxL+AAAAAElFTkSuQmCC" width="24" height="24"></span>
+                  </div>
+                <div class="input-group-btn">
+                    
+                    <button onclick="PrimeiraResposta();mensage();" type="button" id="cbsw_submit" style="background-color:#007bff;color:white;" class="btn btn-default cbsw_button cbsw_submit rounded-right">
+                        Enviar
+                    </button>
+                    
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="cbsw/js/cbsw.js"></script>
+
+    <!-- chatbot FIM -->
+
+</body>
+
+</html>
